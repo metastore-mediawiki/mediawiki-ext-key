@@ -1,9 +1,12 @@
 <?php
 
+namespace MediaWiki\Extension\MW_EXT_Key;
+
+use OutputPage, Parser, PPFrame, Skin;
+
 /**
  * Class MW_EXT_Key
  * ------------------------------------------------------------------------------------------------------------------ */
-
 class MW_EXT_Key {
 
 	/**
@@ -26,7 +29,7 @@ class MW_EXT_Key {
 	 * @param Parser $parser
 	 *
 	 * @return bool
-	 * @throws MWException
+	 * @throws \MWException
 	 * -------------------------------------------------------------------------------------------------------------- */
 
 	public static function onParserFirstCallInit( Parser $parser ) {
@@ -70,7 +73,7 @@ class MW_EXT_Key {
 	 * -------------------------------------------------------------------------------------------------------------- */
 
 	public static function onBeforePageDisplay( OutputPage $out, Skin $skin ) {
-		$out->addModuleStyles( array( 'ext.mw.key.styles' ) );
+		$out->addModuleStyles( [ 'ext.mw.key.styles' ] );
 
 		return true;
 	}
