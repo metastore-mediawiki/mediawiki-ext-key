@@ -10,20 +10,6 @@ use OutputPage, Parser, PPFrame, Skin;
 class MW_EXT_Key {
 
 	/**
-	 * Clear DATA (escape html).
-	 *
-	 * @param $string
-	 *
-	 * @return string
-	 * -------------------------------------------------------------------------------------------------------------- */
-
-	private static function clearData( $string ) {
-		$outString = htmlspecialchars( trim( $string ), ENT_QUOTES );
-
-		return $outString;
-	}
-
-	/**
 	 * Register tag function.
 	 *
 	 * @param Parser $parser
