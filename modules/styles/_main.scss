@@ -1,8 +1,19 @@
-.mw-ext-key {
-	padding: 0 .5em;
-	border: .1em solid #aaa;
+@mixin base() {
+	display: inline-block;
 	border-radius: .2em;
-	background-color: #f9f9f9;
-	background-image: linear-gradient(top, #eee, #f9f9f9, #eee);
-	box-shadow: 1px 2px 2px rgba(0, 0, 0, .1);
+	font-family: "Fira Mono", monospace;
+	line-height: 1;
+	padding: .2em .4em;
+}
+
+.mw-ext-key {
+	@include base();
+	background: hsl(0, 0%, 21%);
+	color: hsl(0, 0%, 100%);
+	&-plus {
+		@include base();
+		background: hsl(0, 0%, 48%);
+		color: hsl(0, 0%, 100%);
+		margin: 0 .1em;
+	}
 }

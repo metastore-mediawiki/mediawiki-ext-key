@@ -3,6 +3,7 @@
 namespace MediaWiki\Extension\MW_EXT_Key;
 
 use OutputPage, Parser, PPFrame, Skin;
+use MediaWiki\Extension\MW_EXT_Core\MW_EXT_Core;
 
 /**
  * Class MW_EXT_Key
@@ -19,7 +20,7 @@ class MW_EXT_Key {
 	 * -------------------------------------------------------------------------------------------------------------- */
 
 	public static function onParserFirstCallInit( Parser $parser ) {
-		$parser->setHook( 'key', __CLASS__ . '::onRenderTag' );
+		$parser->setFunctionHook( 'key', [ __CLASS__, 'onRenderTag' ], Parser::SFH_OBJECT_ARGS );
 
 		return true;
 	}
@@ -27,22 +28,28 @@ class MW_EXT_Key {
 	/**
 	 * Render tag function.
 	 *
-	 * @param $input
-	 * @param array $args
 	 * @param Parser $parser
 	 * @param PPFrame $frame
+	 * @param array $args
 	 *
 	 * @return string
 	 * -------------------------------------------------------------------------------------------------------------- */
 
-	public static function onRenderTag( $input, $args = [], Parser $parser, PPFrame $frame ) {
-		// Get content.
-		$getContent = trim( $input );
-		$outContent = $getContent;
+	public static function onRenderTag( Parser $parser, PPFrame $frame, $args = [] ) {
+		$outHTML = '';
+		$lastArg = end( $args );
 
-		// Out HTML.
-		$outHTML = '<kbd class="mw-ext-key">' . $outContent . '</kbd>';
+		foreach ( $args as $arg ) {
+			$key = MW_EXT_Core::outClear( $frame->expand( $arg ) );
 
+			if ( $arg === $lastArg ) {
+				$plus = '';
+			} else {
+				$plus = '<span class="mw-ext-key-plus">+</span>';
+			}
+
+			$outHTML .= '<kbd class="mw-ext-key">' . $key . '</kbd>' . $plus;
+		}
 		// Out parser.
 		$outParser = $outHTML;
 

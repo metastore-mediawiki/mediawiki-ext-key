@@ -27,6 +27,9 @@
 			"MediaWiki\\Extension\\MW_EXT_Key\\MW_EXT_Key::onBeforePageDisplay"
 		]
 	},
+	"ExtensionMessagesFiles": {
+		"MW_EXT_KeyMagic": "MW_EXT_Key.i18n.magic.php"
+	},
 	"MessagesDirs": {
 		"MW_EXT_Key": [
 			"i18n"
