@@ -48,7 +48,7 @@ class MW_EXT_Key {
 				$plus = '<span class="mw-ext-key-plus">+</span>';
 			}
 
-			$outHTML .= '<kbd class="mw-ext-key">' . $key . '</kbd>' . $plus;
+			$outHTML .= '<kbd class="mw-ext-key navigation-not-searchable">' . $key . '</kbd>' . $plus;
 		}
 		// Out parser.
 		$outParser = $outHTML;
