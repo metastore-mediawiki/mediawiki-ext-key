@@ -5,7 +5,7 @@
 ## Синтаксис
 
 ```
-<key>CTRL</key>+<key>ALT</key>+<key>DEL</key>
+{{#key: [CTRL]|[ALT]|[DEL]}}
 ```
 
 ## Установка
