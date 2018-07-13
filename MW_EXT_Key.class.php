@@ -7,7 +7,7 @@ use MediaWiki\Extension\MW_EXT_Core\MW_EXT_Core;
 
 /**
  * Class MW_EXT_Key
- * ------------------------------------------------------------------------------------------------------------------ */
+ */
 class MW_EXT_Key {
 
 	/**
@@ -17,8 +17,7 @@ class MW_EXT_Key {
 	 *
 	 * @return bool
 	 * @throws \MWException
-	 * -------------------------------------------------------------------------------------------------------------- */
-
+	 */
 	public static function onParserFirstCallInit( Parser $parser ) {
 		$parser->setFunctionHook( 'key', [ __CLASS__, 'onRenderTag' ], Parser::SFH_OBJECT_ARGS );
 
@@ -33,8 +32,7 @@ class MW_EXT_Key {
 	 * @param array $args
 	 *
 	 * @return string
-	 * -------------------------------------------------------------------------------------------------------------- */
-
+	 */
 	public static function onRenderTag( Parser $parser, PPFrame $frame, $args = [] ) {
 		$outHTML = '';
 		$lastArg = end( $args );
@@ -50,6 +48,7 @@ class MW_EXT_Key {
 
 			$outHTML .= '<kbd class="mw-ext-key navigation-not-searchable">' . $key . '</kbd>' . $plus;
 		}
+
 		// Out parser.
 		$outParser = $outHTML;
 
@@ -63,8 +62,7 @@ class MW_EXT_Key {
 	 * @param Skin $skin
 	 *
 	 * @return bool
-	 * -------------------------------------------------------------------------------------------------------------- */
-
+	 */
 	public static function onBeforePageDisplay( OutputPage $out, Skin $skin ) {
 		$out->addModuleStyles( [ 'ext.mw.key.styles' ] );
 
