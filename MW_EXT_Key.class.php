@@ -3,7 +3,7 @@
 namespace MediaWiki\Extension\MW_EXT_Key;
 
 use OutputPage, Parser, PPFrame, Skin;
-use MediaWiki\Extension\MW_EXT_Core\MW_EXT_Core;
+use MediaWiki\Extension\MW_EXT_Kernel\MW_EXT_Kernel;
 
 /**
  * Class MW_EXT_Key
@@ -38,7 +38,7 @@ class MW_EXT_Key {
 		$lastArg = end( $args );
 
 		foreach ( $args as $arg ) {
-			$key = MW_EXT_Core::outClear( $frame->expand( $arg ) );
+			$key = MW_EXT_Kernel::outClear( $frame->expand( $arg ) );
 
 			if ( $arg === $lastArg ) {
 				$plus = '';
