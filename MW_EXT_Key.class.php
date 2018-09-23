@@ -26,13 +26,13 @@ class MW_EXT_Key {
 	/**
 	 * Render tag function.
 	 *
+	 * @param array $args
 	 * @param Parser $parser
 	 * @param PPFrame $frame
-	 * @param array $args
 	 *
 	 * @return string
 	 */
-	public static function onRenderTag( Parser $parser, PPFrame $frame, $args = [] ) {
+	public static function onRenderTag( array $args, Parser $parser, PPFrame $frame ) {
 		$outHTML = '';
 		$lastArg = end( $args );
 
